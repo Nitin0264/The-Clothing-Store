@@ -9,10 +9,10 @@ function Navbar() {
 
     <div className = 'flex gap-5 '>
 
-      <NavLink to= "/">Home </NavLink>
-      <NavLink to ="/Collection">Collection </NavLink>
-      <NavLink to ="/About">About </NavLink>
-      <NavLink to ="Contact">Contact </NavLink>
+      <NavLink to= "/"> Home <hr /> </NavLink>
+      <NavLink to ="/Collection">Collection  <hr /></NavLink>
+       <NavLink to ="/About">About  <hr /></NavLink>
+       <NavLink to ="Contact">Contact <hr /></NavLink>
     </div>
     <div className = 'flex gap-5'>
         <img className = 'h-[25px] w-auto'  src="src\assets\frontend_assets\search_icon.png" alt="Search-button" />

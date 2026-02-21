@@ -6,7 +6,7 @@ import BestSeller from '../components/BestSeller'
 
 function Home() {
   return (
-    <div className= 'w-[85%] mx-auto'>
+    <div className = 'mt-[26px]'>
       <Hero />
       <LatestCollection />
       <BestSeller />

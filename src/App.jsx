@@ -9,7 +9,7 @@ import Hero from './components/Hero'
 
 function App() {
   return (
-    <div className = 'mt-3 mb-7 '>
+    <div className = 'mt-3 mb-7 w-[85%] mx-auto'>
         <Navbar />
      <Routes>
       <Route path = '/' element = {<Home />}  />
