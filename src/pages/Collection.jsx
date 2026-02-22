@@ -51,7 +51,8 @@ useEffect(()=>{
   //  for search
   if(search)
       {
-  product  = product.filter(i => i.name.toLowerCase().includes(search))
+  // product  = product.filter(i => i.name.toLowerCase().includes(search))
+  product  = product.filter(i => i.name.toLowerCase().startsWith(search))
 }
   //  for shorting 
   if(shorting  == 'low'){
