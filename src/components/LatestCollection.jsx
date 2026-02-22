@@ -17,7 +17,7 @@ function LatestCollection() {
     </div>
      <div className='flex flex-wrap gap-4 items-center justify-center'> 
       {
-        products.slice(0,12).map( (i,index)=> ( <div className = 'h-[320px] w-[240px] '  key ={index}>
+        products.slice(12,24).map( (i,index)=> ( <div className = 'h-[320px] w-[240px] '  key ={index}>
            <img src={i.image[0]} alt="" />
            {/* <h1>{i.name}</h1>  */}
            {/* <h1>{i.category}</h1>   */}

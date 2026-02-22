@@ -22,9 +22,9 @@ function BestSeller() {
         </div>
         <div className= 'flex flex-wrap gap-4 items-center justify-center mt-5'>
           {
-           products.filter(i => i.bestseller).map((i,index) => 
+           products.slice( 0,4).filter( i => i.bestseller).map((i,index) => 
             <div>
-              <img className = 'h-[390px] w-[300px]' src={i.image} alt="bestsellers" />
+              <img className = 'h-[320px] w-[240px]' src={i.image} alt="bestsellers" />
               <h1 key = {index}> {i.name}</h1>
             </div>
           )}

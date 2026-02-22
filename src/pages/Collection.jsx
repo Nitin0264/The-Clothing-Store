@@ -1,21 +1,75 @@
-import React, { useContext, useState} from 'react'
+import React, { useContext, useEffect, useState} from 'react'
 import { userContext } from '../context/UserContext';
 import Title from '../components/Title';
 function AllProducts() {
+
 let {products} =  useContext(userContext)
 const [category,setCategory] = useState([])
 const [subCategory,setSubCategory]=useState([])
-const [seach,setSearch] = useState('')
+const [search,setSearch] = useState('')
+const [filteredProduct,setFilteredProduct] = useState([]);
+const [shorting,setShorting] = useState([]);
 
-const toggleCategory = (p)=>{
-  let value  = p.target.value
-   setCategory(i =>i.includes(value) ? i.filter(f=> f!= f.value):  )
+// For the Category
+const toggleCategory = (e =>{
+  let value = e.target.value;
+  // console.log(value)
+  setCategory(i=> i.includes(value) ? i.filter(p=> p!=value): [...i,value] )
+})
+const toggleSubCategory= (e =>{
+  let value = e.target.value
+  // console.log(value)
+  setSubCategory(i => i.includes(value) ? i.filter(p => p!= value) : [...i,value])
+})
+const func =(e)=>{
+ let value = e.target.value.toLowerCase()
+ console.log(value)
+ setSearch(value)
 }
+const sorting =(e)=>{
+  let value = e.target.value
+  setShorting(value)
+}
+
+useEffect(()=>{
+  
+  let product = [...products]
+
+  if(category.length>0){
+   product = product.filter(i=> category.includes(i.category))
+    console.log(product)
+  }
+
+// For the Sub category
+
+  if(subCategory.length>0)
+  {
+    product = product.filter(i=> subCategory.includes(i.subCategory))
+    console.log(product)
+  }
+
+  //  for search
+  if(search)
+      {
+  product  = product.filter(i => i.name.toLowerCase().includes(search))
+}
+  //  for shorting 
+  if(shorting  == 'low'){
+    product = product.sort((a,b) =>a.price-b.price)
+    console.log(product)
+  }
+  if(shorting == "high"){
+    product = product.sort((a,b) => b.price-a.price)
+    console.log(product)
+  }
+setFilteredProduct(product);
+},[category,subCategory,search,shorting])
+
   return (
 
     <div className='flex relative  '>
       {/* SIDEBAR */}
-      <div className='my-13 fixed w-[200px]'>
+      <div className=' mt-[25px] fixed w-[200px]'>
         <button className='h-11 w-[170px] text-white font-semibold bg-black rounded-xl mb-5'>Filter</button>
         
         {/* Categories Section */}
@@ -29,36 +83,49 @@ const toggleCategory = (p)=>{
         </div>
 
         {/* Search Section */}
-        <div className='border border-slate-200 p-3 mt-5'>
+        <div className='border border-slate-200 p-3 mt-3'>
           <p className='text-xl font-bold'>Search</p>
-          <input 
-            className='h-[30px] w-full border border-slate-200 mt-2 px-2' 
+          <input onChange={func}
+               className='h-[30px] w-full border border-slate-200 mt-2 px-2' 
             type="text" 
             placeholder='Search...' 
           />
         </div>
 
         {/* Sub Categories Section */}
-        <div className='border border-slate-200 p-3 mt-4'>
+        <div className='border border-slate-200 p-3 mt-3'>
           <h1 className='font-bold text-xl text-black'>SUB-CATEGORIES</h1>
           <div className='flex flex-col gap-3 my-3'>
-            <label className='flex gap-2'><input type="checkbox" value='Topwear' /> TopWear</label>
-            <label className='flex gap-2'><input type="checkbox" value='Bottomwear' /> BottomWear</label>
-            <label className='flex gap-2'><input type="checkbox" value='Winterwear' /> WinterWear</label>
+            <label className='flex gap-2'><input onChange= {toggleSubCategory}  type="checkbox" value='Topwear' /> TopWear</label>
+            <label className='flex gap-2'><input onChange= {toggleSubCategory} type="checkbox" value='Bottomwear' /> BottomWear</label>
+            <label className='flex gap-2'><input onChange= {toggleSubCategory} type="checkbox" value='Winterwear' /> WinterWear</label>
           </div>
         </div>
       </div>
       {/* For the products */}
-      <div className = 'ms-[230px] flex flex-col mt-[25px] gap-5'>
+      <div className = 'ms-[230px] flex flex-col mt-[20px] gap-5'>
+        <div className = 'flex justify-between'> 
         <Title t1='All' t2='Products' />
+         <select onChange={sorting}> 
+          <option>Relevent</option>
+          <option value = 'high'>High to low</option>
+          <option value = 'low'>Low to High</option>
+         </select>
+        </div>
+         
       <div className = 'flex flex-wrap gap-3'>
         
          {
-
-          products.map(i => <div className= 'h-[320px] w-[220px]'>
+          filteredProduct.length > 0 ?
+           (filteredProduct.map((i,index) => <div  key = {index} className= 'h-[320px] w-[220px]'>
               <img src={i.image[0]} alt = "Products" />
                  <h1>{i.name}</h1>
-             </div>)
+{/* 
+            // products.map((i,index) => <div  key = {index} className= 'h-[320px] w-[220px]'>
+            //     <img src={i.image[0]} alt = "Products" />
+            //        <h1>{i.name}</h1> */}
+             </div >)) : <p>NO Product Found</p>
+  
          }
       </div>
       </div>
