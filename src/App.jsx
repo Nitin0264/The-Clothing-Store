@@ -6,6 +6,7 @@ import Collection from './pages/Collection'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Hero from './components/Hero'
+import Product from './pages/Product'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
      <Routes>
       <Route path = '/' element = {<Home />}  />
       <Route path ='/Collection' element = {<Collection />} />
+      <Route path ='/products/:pid' element = {<Product />} />
        <Route path = '/About' element = {<About />} />
        <Route path  =  '/Contact' element = {<Contact />} />
 
