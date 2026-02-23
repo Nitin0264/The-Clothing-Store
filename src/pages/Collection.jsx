@@ -118,7 +118,8 @@ function AllProducts() {
           {
             filteredProduct.length > 0 ?
               (filteredProduct.map((i, index) =>
-                <ProductsDisplay id={i._id}  index={index} image = {i.image[0]} name= {i.name} />
+                <ProductsDisplay id={i._id} key={index}  index={index} image = {i.image[0]} name= {i.name} />
+                // here importing data from the product display
               )) : <p>NO Product Found</p>
 
           }
