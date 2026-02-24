@@ -3,6 +3,7 @@ import { userContext } from '../context/UserContext'
 import { products } from '../assets/frontend_assets/assets'
 import ProductItem from './ProductItem'
 import Title from './Title'
+import ProductsDisplay from './ProductsDisplay'
 
 function LatestCollection() {
   const {products} = useContext(userContext)
@@ -17,11 +18,15 @@ function LatestCollection() {
     </div>
      <div className='flex flex-wrap gap-4 items-center justify-center'> 
       {
-        products.slice(12,24).map( (i,index)=> ( <div className = 'h-[320px] w-[240px] '  key ={index}>
-           <img src={i.image[0]} alt="" />
+        products.slice(12,24).map( (i,index)=> ( <div className = 'h-[320px] w-[240px] ' key ={index}>
+         {/* {<ProductsDisplay name={i.name} img src={img[0]}  />} */}
+         <ProductsDisplay id={i._id} key={index}  index={index} image = {i.image[0]} name= {i.name} />
+        
+        
+           {/* <img src={i.image[0]} alt="" /> */}
            {/* <h1>{i.name}</h1>  */}
            {/* <h1>{i.category}</h1>   */}
-           { <ProductItem  name = {i.name} />}
+           {/* { <ProductItem  name = {i.name} />} */}
              
            </div> ))
       }

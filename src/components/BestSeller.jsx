@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Title from './Title'
 import { userContext } from '../context/UserContext'
+import ProductsDisplay from './ProductsDisplay'
 
 function BestSeller() {
   const { products } = useContext(userContext)
@@ -23,9 +24,8 @@ function BestSeller() {
         <div className= 'flex flex-wrap gap-4 items-center justify-center mt-5'>
           {
            products.slice( 0,4).filter( i => i.bestseller).map((i,index) => 
-            <div>
-              <img className = 'h-[320px] w-[240px]' src={i.image} alt="bestsellers" />
-              <h1 key = {index}> {i.name}</h1>
+            <div className='h-[320px] w-[250px]'>
+              <ProductsDisplay id={i._id} key={index}  index={index} image = {i.image[0]} name= {i.name} />
             </div>
           )}
           {/*  <h1>{i.name}</h1>)} */}
