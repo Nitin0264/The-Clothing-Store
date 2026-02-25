@@ -22,8 +22,22 @@ function Provider({ children }) {
     setCardItem(cardData)
   }
 
+  const gettotalCart =()=>{
+    let totalCount = 0
+   
+     for(let items in cardItem){
+      for(let size in cardItem[items]){
+        if(cardItem[items][size]){
+          totalCount += cardItem[items][size]
+        }
+      }
+     }
+     return totalCount
+
+  }
+
   const obj = {
-    products, name, addtocart
+    products, name, addtocart,gettotalCart
   }
   useEffect(() => {
     console.log(cardItem)

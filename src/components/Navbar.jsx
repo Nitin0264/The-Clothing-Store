@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import { userContext } from '../context/UserContext'
 
 function Navbar() {
   const [display,setDisplay] =  useState(false)
+  let {gettotalCart} = useContext(userContext)
   return (
     <div className=' w-[95%] mx-auto'>
       {/* for the Navbar */}
@@ -18,8 +20,16 @@ function Navbar() {
     </div>
     <div className = 'flex gap-5'>
         <img className = 'h-[25px] w-auto'  src="src\assets\frontend_assets\search_icon.png" alt="Search-button" />
- 
-      <img className = 'h-[25px] w-auto' src="src\assets\frontend_assets\cart_icon.png" alt="Cart-button" /></div>
+        {/* the add to cart button display */}
+           <div className='relative'>
+               <div className=''>
+                <img className = 'h-[25px] w-auto' src="src\assets\frontend_assets\cart_icon.png" alt="Cart-button" />
+               </div>
+            <div className='absolute top-[13px] right-[-5px]'>
+            <p className='h-[20px] w-[20px]  rounded-2xl text-white bg-cyan-800 text-center '>{gettotalCart()}</p>
+            </div>
+      </div>
+      </div>
     </div>
 
     {/* for the hemberger */}
