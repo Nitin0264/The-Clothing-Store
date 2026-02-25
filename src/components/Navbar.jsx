@@ -16,11 +16,12 @@ function Navbar() {
       <NavLink to= "/"> Home <hr /> </NavLink>
       <NavLink to ="/Collection">Collection  <hr /></NavLink>
        <NavLink to ="/About">About  <hr /></NavLink>
-       <NavLink to ="Contact">Contact <hr /></NavLink>
+       <NavLink to ="/Contact">Contact <hr /></NavLink>
     </div>
     <div className = 'flex gap-5'>
         <img className = 'h-[25px] w-auto'  src="src\assets\frontend_assets\search_icon.png" alt="Search-button" />
         {/* the add to cart button display */}
+        <NavLink to="/CartItems">
            <div className='relative'>
                <div className=''>
                 <img className = 'h-[25px] w-auto' src="src\assets\frontend_assets\cart_icon.png" alt="Cart-button" />
@@ -29,6 +30,7 @@ function Navbar() {
             <p className='h-[20px] w-[20px]  rounded-2xl text-white bg-cyan-800 text-center '>{gettotalCart()}</p>
             </div>
       </div>
+      </NavLink>
       </div>
     </div>
 

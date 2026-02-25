@@ -12,6 +12,7 @@ function Provider({ children }) {
       if (cardData[id][size]) {
         cardData[id][size] += 1
       } else {
+        
         cardData[id][size] = 1
       }
     } else {
@@ -35,6 +36,7 @@ function Provider({ children }) {
      return totalCount
 
   }
+
 
   const obj = {
     products, name, addtocart,gettotalCart

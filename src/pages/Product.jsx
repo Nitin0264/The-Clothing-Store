@@ -60,15 +60,15 @@ console.log(size1)
 
                   {
                     product1.sizes.map((i,k) => (
-                      <div key={k} className={`${size1 ===i? 'bg-orange-400':''}`} >
-                        <p className="p-2" onClick={()=>setSize1(i)} >{i}</p>
+                      <div key={k} className={`${size1 ===i? 'bg-rose-500 rounded-md':''}`} >
+                        <p className="  h-[36px] w-[34px] flex items-center justify-center text-center rounded-md " onClick={()=>setSize1(i)}>{i}</p>
                       </div>
                     ))
                   }
                 </div>
 
 
-                <button className='mt-5 bg-black text-white h-[40px] w-[120px] rounded-md pointer' onClick={() => addtocart(product1._id, size1)}>Add to cart</button>
+                <button className='mt-5 bg-black text-white h-[40px] w-[120px] rounded-md pointer' onClick={() => addtocart  (product1._id, size1)}>Add to cart</button>
 
                 <ol className='mt-5 flex flex-col gap-3 list-disc'>
                   <li>100% genuine and authentic.</li>
