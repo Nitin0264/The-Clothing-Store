@@ -12,7 +12,7 @@ function Provider({ children }) {
       if (cardData[id][size]) {
         cardData[id][size] += 1
       } else {
-        
+
         cardData[id][size] = 1
       }
     } else {
@@ -23,28 +23,28 @@ function Provider({ children }) {
     setCardItem(cardData)
   }
 
-  const gettotalCart =()=>{
+  const gettotalCart = () => {
     let totalCount = 0
-   
-     for(let items in cardItem){
-      for(let size in cardItem[items]){
-        if(cardItem[items][size]){
+
+    for (let items in cardItem) {
+      for (let size in cardItem[items]) {
+        if (cardItem[items][size]) {
           totalCount += cardItem[items][size]
         }
       }
-     }
-     return totalCount
+    }
+    return totalCount
 
   }
 
 
   const obj = {
-    products, name, addtocart,gettotalCart,cardItem
+    products, name, addtocart, gettotalCart, cardItem
   }
   useEffect(() => {
     console.log(cardItem)
   }, [cardItem])
-  
+
   return (
     <userContext.Provider value={obj}>
       {children}
