@@ -16,7 +16,7 @@ function Product() {
   useEffect(() => {
     const product = products.find(p => p._id === pid);
     if (product) {
-      console.log(product)
+      // console.log(product)
       setProduct1(product)
       setImage(product.image[0])
     }
@@ -66,6 +66,8 @@ console.log(size1)
                     ))
                   }
                 </div>
+                
+                  {/* addd to cart button */}
 
 
                 <button className='mt-5 bg-black text-white h-[40px] w-[120px] rounded-md pointer' onClick={() => addtocart  (product1._id, size1)}>Add to cart</button>

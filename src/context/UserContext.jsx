@@ -39,7 +39,7 @@ function Provider({ children }) {
 
 
   const obj = {
-    products, name, addtocart,gettotalCart
+    products, name, addtocart,gettotalCart,cardItem
   }
   useEffect(() => {
     console.log(cardItem)
