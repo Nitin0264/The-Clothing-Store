@@ -140,9 +140,11 @@ function Cart() {
           {tempdata.length > 0 ?
             <div className='shadow shadow-lg shadow-yellow-200 p-10' >
               <div className=' flex flex-col gap-3 my-5'>
-                <h1 className='text-3xl font-semibold text-center mb-7'>Cart Total</h1>
+                <h1 className='text-3xl font-semibold text-center mb-7 border-b border-gray-200 pb-3'>Cart Total</h1>
                 <p className='flex justify-between items-center'><span className='text-lg font-semibold'>SubTotal</span><span>{`$${subTotal.toFixed(2)}`}</span></p>
-              <p className='flex justify-between items-center'><span className='text-lg font-semibold'>shippingFee</span><span></span>{`$${shippingFee.toFixed(2)}`}</p>
+
+               <p className='flex justify-between items-center  border-b border-gray-200 pb-3'><span className='text-lg font-semibold'>shippingFee</span><span></span>{`$${shippingFee.toFixed(2)}`}</p>
+
                 <p className='flex justify-between items-center'><span className='text-lg font-semibold'>Total</span><span>{`$${total.toFixed(2)}`}</span></p>
               </div>
               <div>
