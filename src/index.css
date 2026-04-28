@@ -11,3 +11,7 @@ hr{
   height:2px;
   background-color:rgb(76, 76, 167);
 }
+::-webkit-scrollbar
+{
+  display: none;
+}

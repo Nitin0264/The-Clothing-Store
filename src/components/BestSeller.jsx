@@ -21,10 +21,10 @@ function BestSeller() {
           <Title t1='Best ' t2='Sellers' />
           <Title t3='We are the bestSellers all around the world so far' />
         </div>
-        <div className= 'flex flex-wrap gap-4 items-center justify-center mt-5'>
+        <div className= 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 items-center justify-center mt-5 gap-y-10'>
           {
-           products.slice( 0,4).filter( i => i.bestseller).map((i,index) => 
-            <div  key={index} className='h-[320px] w-[250px]'>
+           products.filter( i => i.bestseller).slice(0,5).map((i,index) => 
+            <div  key={index} className='h-auto w-full'>
               <ProductsDisplay id={i._id} key={index}   image = {i.image[0]} name= {i.name} />
             </div>
           )}

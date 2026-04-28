@@ -51,7 +51,7 @@ function AllProducts() {
     //  for search
     if (search) {
       // product  = product.filter(i => i.name.toLowerCase().includes(search))
-      product = product.filter(i => i.name.toLowerCase().startsWith(search))
+      product = product.filter(i => i.name.toLowerCase().includes(search))
     }
     //  for shorting 
     if (shorting == 'low') {
